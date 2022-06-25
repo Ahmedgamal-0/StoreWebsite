@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<div class="item-container w-50 m-auto row mt-5">
+  <div class="col-6">
+    <img
+      class="item-image w-100"
+      src="{{ itemFromList.url }}"
+      alt="ItemPhoto"
+    />
+  </div>
+  <div class="col-6">
+    <div
+      class="d-flex flex-column align-items-center justify-content-center h-100"
+    >
+      <h2 class="mt-1">{{ itemFromList.name }}</h2>
+      <p class="mt-1">{{ itemFromList.price }}</p>
+      <p class="mt-1">{{ itemFromList.description }}</p>
+      <select
+        class="select-input mt-1"
+        (change)="setValue($event, itemFromList.price)"
+      >
+        <option *ngFor="let value of values">
+          {{ value }}
+        </option>
+      </select>
+      <button class="btn btn-primary mt-3" (click)="addToCart()">
+        Add To Cart
+      </button>
+      <a routerLinkActive="active" [routerLink]="'/home'"
+        ><i class="fa-solid fa-arrow-left mt-3"></i> back to Menu</a
+      >
+    </div>
+  </div>
+</div>

@@ -1,3 +1,10 @@
+# Project Description
+This a project for online shopping for product in which can see list of all products and you can  add or remove product to or from your
+shopping cart and then you can see total value of your cart , also you can add you Name and Credit Card Number and confirm Payment to your Product.
+
+# Project Running
+1- npm i
+2- ng serve --open
 # StoreApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.2.

@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+<div class="item-container row mt-3">
+  <div
+    *ngFor="let itemFromList of items; let i = index"
+    class="item-index col-4"
+  >
+    <a routerLinkActive="active" [routerLink]="['/item', i]">
+      <img class="item-image" src="{{ itemFromList.url }}" alt="ItemPhoto"
+    /></a>
+    <div class="d-flex flex-column align-items-center w-100">
+      <h2>{{ itemFromList.name }}</h2>
+      <p>{{ itemFromList.price }}</p>
+      <select
+        class="select-input"
+        (change)="setValue($event)"
+      >
+        <option *ngFor="let value of values">{{ value }}</option>
+      </select>
+      <button class="btn btn-primary" (click)="addToCart(i)">Add To Cart</button>
+    </div>
+  </div>
+</div>
