@@ -11,10 +11,11 @@ const routes: Routes = [
   { path: 'item/:id', component: ItemComponent },
   { path: 'cart', component: CartComponent },
   { path: 'paymentsuccess/:total/:fullName', component: PaymentAlertComponent },
+  { path: '**', redirectTo: '/' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

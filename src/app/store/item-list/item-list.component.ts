@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ItemModel } from './item/item.model';
 import ItemData from 'src/assets/data.json';
 import { CartService } from '../cart/cart.service';
+import { ItemService } from './item/item.service';
 
 @Component({
   selector: 'app-item-list',
@@ -15,15 +16,25 @@ export class ItemListComponent implements OnInit {
   total: any;
   itemValue: any = 1;
   itemPrice: any;
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService,
+    private itemService: ItemService) {
+
+  }
 
   ngOnInit(): void {
-    this.items = ItemData;
+    this.getAllItems();
   }
+
+  getAllItems() {
+    this.itemService.getAllItems().subscribe((response) => {
+      this.items = response;
+    });
+  }
+  
   setValue(itemValue: any) {
     this.itemValue = itemValue.target.value;
   }
-  addToCart(index:any) {
+  addToCart(index: any) {
     this.id = index;
     this.itemPrice = this.items[this.id].price;
     this.total = this.itemValue * this.itemPrice;

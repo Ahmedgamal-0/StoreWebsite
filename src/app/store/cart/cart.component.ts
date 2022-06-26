@@ -33,6 +33,7 @@ export class CartComponent implements OnInit {
   deleteItem(index: number) {
     this.cartService.deleteItem(index);
     this.calculateTotal();
+    window.alert("You have Removed Item From Your Cart ")
   }
 
   onSubmit() {
