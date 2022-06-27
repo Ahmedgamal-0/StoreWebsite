@@ -1,0 +1,31 @@
+<div class="col-6">
+    <label class="fw-bold mt-3"> Full Name</label>
+    <!-- <input
+      type="text"
+      [(ngModel)]="fullName"
+      [(ngModelChange)]="validateInputs($event)"
+      class="form-control"
+      placeholder="(minimum 3 characters)"
+    /> -->
+    <input type="text" [(ngModel)]="fullNameInput" (ngModelChange)="setFullName()" class="form-control"
+        placeholder="(minimum 3 characters)" />
+    <!-- <app-input-validation [value]="fullNameInput" [type]="'Full Name'"></app-input-validation> -->
+    <p class="text-danger" *ngIf="fullNameInput.length<=2 && fullNameInput != '' ">Full Name should be greater than 2
+        characters</p>
+
+    <label class="fw-bold mt-3"> Address</label>
+    <input type="text" [(ngModel)]="address" class="form-control" placeholder="(minimum 6 characters)" />
+    <!-- <app-input-validation [value]="address" [type]="'Address'"></app-input-validation> -->
+    <p class="text-danger" *ngIf="address.length<=5 && address != '' ">Address should be greater than 5 characters</p>
+
+    <label class="fw-bold mt-3"> Credit Card Number</label>
+    <input type="number" [(ngModel)]="creditCard" class="form-control" placeholder="(16-digit number)" />
+    <p class="text-danger" *ngIf="creditCard.toString().length != 14 && creditCard!=0">
+        Credit Card should be Equal To 14 numbers
+    </p>
+    <!-- <app-input-validation [value]="creditCard" [type]="'Credit Card'"></app-input-validation> -->
+
+    <p class="fw-bold text-muted">
+        We'll never share your payment details with anyone else.
+    </p>
+</div>

@@ -13,9 +13,9 @@ export class ItemListComponent implements OnInit {
   items: ItemModel[] = [];
   values: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   id: any;
-  total: any;
-  itemValue: any = 1;
-  itemPrice: any;
+  total: number = 0;
+  itemValue: number = 1;
+  itemPrice: number = 0;
   constructor(private cartService: CartService,
     private itemService: ItemService) {
 
@@ -30,7 +30,7 @@ export class ItemListComponent implements OnInit {
       this.items = response;
     });
   }
-  
+
   setValue(itemValue: any) {
     this.itemValue = itemValue.target.value;
   }
@@ -40,6 +40,7 @@ export class ItemListComponent implements OnInit {
     this.total = this.itemValue * this.itemPrice;
     window.alert('Added To Cart!');
     let item = {
+      id: this.id,
       name: this.items[this.id].name,
       price: this.items[this.id].price,
       url: this.items[this.id].url,

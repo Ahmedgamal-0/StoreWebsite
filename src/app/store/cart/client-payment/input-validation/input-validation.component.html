@@ -1,0 +1,6 @@
+<p class="text-danger" *ngIf="count == 14 && !isValid; else charMessage">
+    {{type}} should be Equal To {{count}} numbers
+</p>
+<ng-template #charMessage>
+    <p class="text-danger" *ngIf="!isValid">{{type}} should be greater than {{count}} characters</p>
+</ng-template>

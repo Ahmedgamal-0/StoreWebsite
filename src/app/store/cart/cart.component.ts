@@ -18,11 +18,14 @@ export class CartComponent implements OnInit {
     private route: ActivatedRoute,
     private cartService: CartService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.cartList = this.cartService.getItems();
     this.calculateTotal();
+  }
+  validateInputs(data: any) {
+    console.log(data);
   }
   calculateTotal() {
     this.totalCart = 0;
@@ -35,11 +38,14 @@ export class CartComponent implements OnInit {
     this.calculateTotal();
     window.alert("You have Removed Item From Your Cart ")
   }
+  getFullName(data: string) {
+    this.fullName = data;
+  }
 
   onSubmit() {
     this.router.navigate(['/paymentsuccess', this.totalCart, this.fullName]);
     this.cartService.clearCart();
-    this.totalCart=0;
+    this.totalCart = 0;
   }
-  
+
 }

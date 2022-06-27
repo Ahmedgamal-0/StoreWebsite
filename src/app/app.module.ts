@@ -10,9 +10,11 @@ import { ItemListComponent } from './store/item-list/item-list.component';
 import { ItemComponent } from './store/item-list/item/item.component';
 import { NavbarComponent } from './store/navbar/navbar.component';
 import { PaymentAlertComponent } from './store/payment-alert/payment-alert.component';
+import { ClientPaymentComponent } from './store/cart/client-payment/client-payment.component';
+import { InputValidationComponent } from './store/cart/client-payment/input-validation/input-validation.component';
 
 @NgModule({
-  declarations: [AppComponent, ItemListComponent, ItemComponent, CartComponent, NavbarComponent, PaymentAlertComponent],
+  declarations: [AppComponent, ItemListComponent, ItemComponent, CartComponent, NavbarComponent, PaymentAlertComponent, ClientPaymentComponent, InputValidationComponent],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [CartService],
   bootstrap: [AppComponent],

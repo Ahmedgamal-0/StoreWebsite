@@ -12,15 +12,15 @@ import { CartService } from '../../cart/cart.service';
 export class ItemComponent implements OnInit {
   itemFromList: ItemModel = new ItemModel();
   id: any;
-  total: any;
-  itemValue: any = 1;
-  itemPrice: any;
+  total: number = 0;
+  itemValue: number = 1;
+  itemPrice: number = 0;
   ItemList: ItemModel[] = [];
   values: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   constructor(
     private route: ActivatedRoute,
     private cartService: CartService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.ItemList = ItemData;
@@ -41,6 +41,7 @@ export class ItemComponent implements OnInit {
     this.total = this.itemValue * this.itemPrice;
     window.alert('Added To Cart!');
     let item = {
+      id: this.id,
       name: this.itemFromList.name,
       price: this.itemFromList.price,
       url: this.itemFromList.url,
